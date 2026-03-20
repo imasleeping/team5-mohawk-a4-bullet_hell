@@ -12,13 +12,15 @@ namespace MohawkGame2D
     {
         // Place your variables here:
 
+        PlayerInput = Input;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
         public void Setup()
         {
-
+            Window.SetSize(800, 800);
+            Window.SetTitle("Player Movment");
         }
 
         /// <summary>
@@ -26,7 +28,11 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
+            Window.ClearBackground(Color.OffWhite);
 
+            Draw.FillColor = Color.Red;
+            Draw.LineColor = Color.Black;
+            Draw.Circle(400,400, 80);
         }
     }
 
