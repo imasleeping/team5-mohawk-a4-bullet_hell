@@ -7,7 +7,8 @@ public class Bullets
 {
     public static List<Vector2> Positions = new List<Vector2>();
     public static List<Vector2> Velocitys = new List<Vector2>();
-    public void AddBullet(Vector2 position, Vector2 velocity)
+
+    public static void AddBullet(Vector2 position, Vector2 velocity)
     {
         //adds new bullets position and velocity to their respective lists
         Positions.Add(position);
@@ -20,7 +21,8 @@ public class Bullets
             //move position by velocitys
             Positions[i] += Velocitys[i] * Time.DeltaTime;
             // draw circle graphics at positions
-            Draw.Circle(Positions[i], 50);
+            Draw.FillColor = Color.White;
+            Draw.Circle(Positions[i], 10f);
         } 
     }
 }
