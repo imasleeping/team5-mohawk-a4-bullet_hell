@@ -11,14 +11,15 @@ namespace MohawkGame2D
     public class Game
     {
         // Place your variables here:
-
+        Boss boss = new Boss();
+        Bullets bullets = new Bullets();
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
         public void Setup()
         {
-
+            Window.SetSize(1000,1000);
         }
 
         /// <summary>
@@ -26,7 +27,8 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
-
+            bullets.MoveAndDraw();
+            boss.Attack();
         }
     }
 
