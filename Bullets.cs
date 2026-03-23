@@ -22,7 +22,9 @@ public class Bullets
             Positions[i] += Velocitys[i] * Time.DeltaTime;
             // draw circle graphics at positions
             Draw.FillColor = Color.Red;
+            Draw.LineColor = Color.Red;
             Draw.Circle(Positions[i], 10f);
+            // remove if off screen
             if (Positions[i].Y > Window.Size.Y || Positions[i].Y < 0 || Positions[i].X > Window.Size.X || Positions[i].X < 0)
             {
                 Positions.Remove(Positions[i]);
