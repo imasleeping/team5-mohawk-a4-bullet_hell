@@ -21,8 +21,13 @@ public class Bullets
             //move position by velocitys
             Positions[i] += Velocitys[i] * Time.DeltaTime;
             // draw circle graphics at positions
-            Draw.FillColor = Color.White;
+            Draw.FillColor = Color.Red;
             Draw.Circle(Positions[i], 10f);
+            if (Positions[i].Y > Window.Size.Y || Positions[i].Y < 0 || Positions[i].X > Window.Size.X || Positions[i].X < 0)
+            {
+                Positions.Remove(Positions[i]);
+                Velocitys.Remove(Velocitys[i]);
+            }
         } 
     }
 }
