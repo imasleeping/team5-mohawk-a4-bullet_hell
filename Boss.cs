@@ -6,24 +6,39 @@ namespace MohawkGame2D
 	{
 		int Health = 100;
 		public static Vector2 Position = Window.Size/2;
-		float AttackTimer = 0.1f;
-		float AttackTimerMax = 0.1f;
-		int AttackPattern = 2;
+		float AttackTimer1 = 0.1f;
+		float AttackTimerMax1 = 0.1f;
+        float AttackTimer2 = 0.1f;
+        float AttackTimerMax2 = 0.1f;
+        float AttackPatternChange = 10f;
+        int AttackPattern = 1;
 		int BulletAmount = 10;
 		int BulletSpeed = 5;
         Vector2 BulletSpawn = Window.Size / 2;
         public void Attack()
 		{
-			if (AttackPattern == 1)
+			AttackPatternChange -= Time.DeltaTime;
+			if (AttackPatternChange <= 0)
 			{
-				AttackTimerMax = 0.1f;
+                AttackPatternChange = Random.Float(5f,15f);
+				AttackPattern += 1;
+				if (AttackPattern > 2)
+				{
+                    AttackPattern = 1;
+
+                }
+            }
+
+            if (AttackPattern == 1)
+			{
+				AttackTimerMax1 = 0.1f;
 				BulletSpeed = 7;
-				AttackTimer -= Time.DeltaTime;
-				if (AttackTimer < 0)
+				AttackTimer1 -= Time.DeltaTime;
+				if (AttackTimer1 < 0)
 				{
 					float time = Time.SecondsElapsed; 
 					float cycle = time * MathF.Tau;
-					AttackTimer = AttackTimerMax;
+					AttackTimer1 = AttackTimerMax1;
 					BulletSpawn.Y = Position.Y + MathF.Sin(cycle / 2) * 10;
                     BulletSpawn.X = Position.X + MathF.Cos(cycle / 2) * 10;
 					//for (int i = 0; i < BulletAmount; i++)
@@ -34,13 +49,13 @@ namespace MohawkGame2D
 			}
             if (AttackPattern == 2)
             {
-                AttackTimerMax = 5f;
+                AttackTimerMax2 = 2f;
                 BulletSpeed = 7;
-                AttackTimer -= Time.DeltaTime;
+                AttackTimer2 -= Time.DeltaTime;
 				BulletAmount = 25;
-                if (AttackTimer < 0)
+                if (AttackTimer2 < 0)
                 {
-                    AttackTimer = AttackTimerMax;
+                    AttackTimer2 = AttackTimerMax2;
                     for (int i = 0; i < BulletAmount; i++)
                     {
 						BulletSpawn.Y = Position.Y + MathF.Sin(MathF.Tau * i / BulletAmount) * 10;
