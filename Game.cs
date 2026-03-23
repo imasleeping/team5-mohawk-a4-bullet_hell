@@ -19,7 +19,7 @@ namespace MohawkGame2D
         /// </summary>
         public void Setup()
         {
-            Window.SetSize(1000,1000);
+            Window.SetSize(800,800);
         }
 
         /// <summary>
@@ -27,6 +27,7 @@ namespace MohawkGame2D
         /// </summary>
         public void Update()
         {
+            Window.ClearBackground(Color.Black);
             bullets.MoveAndDraw();
             boss.Attack();
         }
