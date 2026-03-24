@@ -28,8 +28,8 @@ namespace MohawkGame2D
         public void Update()
         {
             Window.ClearBackground(Color.Black);
-            bullets.MoveAndDraw();
-            boss.Attack();
+            bullets.Update();
+            boss.Update();
         }
     }
 
