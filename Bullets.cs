@@ -18,17 +18,20 @@ public class Bullets
     {
         for (int i = 0; i < Positions.Count; i ++)
         {
+            // remove if off screen
+            if (Positions[i].Y > Window.Size.Y + BulletSize || Positions[i].Y < 0 - BulletSize || Positions[i].X > Window.Size.X + BulletSize || Positions[i].X < 0 - BulletSize)
+            {
+                Positions.RemoveAt(i);
+                Velocitys.RemoveAt(i);
+            }
+            else
+            {
             //move position by velocitys
             Positions[i] += Velocitys[i] * Time.DeltaTime;
             // draw circle graphics at positions
             Draw.FillColor = Color.Red;
             Draw.LineColor = Color.Red;
             Draw.Circle(Positions[i], BulletSize);
-            // remove if off screen
-            if (Positions[i].Y > Window.Size.Y + BulletSize || Positions[i].Y < 0 - BulletSize || Positions[i].X > Window.Size.X + BulletSize || Positions[i].X < 0 - BulletSize)
-            {
-                Positions.Remove(Positions[i]);
-                Velocitys.Remove(Velocitys[i]);
             }
         } 
     }
