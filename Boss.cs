@@ -13,17 +13,25 @@ namespace MohawkGame2D
         float AttackTimer3 = 0.1f;
         float AttackTimerMax3 = 0.1f;
         float AttackPatternChange = 10f;
+        float TargetTimer = 0.3f;
+        int LastPattern;
         int AttackPattern = 3;
 		int BulletAmount = 10;
 		int BulletSpeed = 5;
         Vector2 BulletSpawn = Window.Size / 2;
-        public void Attack()
+        Vector2 RandomPosition = new Vector2(Random.Float(0, Window.Size.Y), Random.Float(0, Window.Size.X));
+        public void Update()
 		{
 			AttackPatternChange -= Time.DeltaTime;
 			if (AttackPatternChange <= 0)
 			{
-                AttackPatternChange = Random.Float(5f,15f);
+                if (AttackPattern == LastPattern)
+                {
+                    AttackPattern += 1;
+                }
+                AttackPatternChange = Random.Float(5f,10f);
                 AttackPattern = Random.Integer(1, 4);
+                LastPattern = AttackPattern;
             }
 
             if (AttackPattern == 1)
@@ -69,13 +77,25 @@ namespace MohawkGame2D
                 BulletAmount = 20;
                 if (AttackTimer3 < 0)
                 {
-                    AttackTimer3 = AttackTimerMax3;
-                    Vector2 RandomPosition = new Vector2(Random.Float(0, Window.Size.Y), Random.Float(0, Window.Size.X));
-                    for (int i = 0; i < BulletAmount; i++)
+                    if (TargetTimer > 0f)
                     {
+                        Console.WriteLine(TargetTimer);
+                        TargetTimer -= Time.DeltaTime;
+                        Draw.FillColor = Color.White;
+                        Draw.LineColor = Color.White;
+                        Draw.Circle(RandomPosition, 15);
+                    }
+                    if (TargetTimer <= 0f)
+                    {
+                        for (int i = 0; i < BulletAmount; i++)
+                        {
                         BulletSpawn.Y = RandomPosition.Y + MathF.Sin(MathF.Tau * i / BulletAmount) * 10;
                         BulletSpawn.X = RandomPosition.X + MathF.Cos(MathF.Tau * i / BulletAmount) * 10;
                         Bullets.AddBullet(new Vector2(BulletSpawn.X, BulletSpawn.Y), (BulletSpawn - RandomPosition) * BulletSpeed);
+                        AttackTimer3 = AttackTimerMax3;
+                        }
+                        RandomPosition = new Vector2(Random.Float(0, Window.Size.Y), Random.Float(0, Window.Size.X));
+                        TargetTimer = 0.3f;
                     }
                 }
             }
