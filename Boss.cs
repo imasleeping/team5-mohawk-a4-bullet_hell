@@ -79,7 +79,6 @@ namespace MohawkGame2D
                 {
                     if (TargetTimer > 0f)
                     {
-                        Console.WriteLine(TargetTimer);
                         TargetTimer -= Time.DeltaTime;
                         Draw.FillColor = Color.White;
                         Draw.LineColor = Color.White;
