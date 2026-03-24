@@ -14,7 +14,7 @@ public class Bullets
         Positions.Add(position);
         Velocitys.Add(velocity);
     }
-    public void MoveAndDraw()
+    public void Update()
     {
         for (int i = 0; i < Positions.Count; i ++)
         {
