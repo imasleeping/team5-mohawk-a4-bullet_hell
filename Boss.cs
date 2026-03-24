@@ -80,6 +80,7 @@ namespace MohawkGame2D
                     if (TargetTimer > 0f)
                     {
                         TargetTimer -= Time.DeltaTime;
+                        // replace this with image drawing
                         Draw.FillColor = Color.White;
                         Draw.LineColor = Color.White;
                         Draw.Circle(RandomPosition, 15);
@@ -98,7 +99,7 @@ namespace MohawkGame2D
                     }
                 }
             }
-            // boss graphics
+            // boss graphics(replace with image)
             Draw.FillColor = Color.Red;
 			Draw.LineColor = Color.Red;
 			Draw.Circle(Position, 20);

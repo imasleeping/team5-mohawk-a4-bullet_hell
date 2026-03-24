@@ -28,7 +28,7 @@ public class Bullets
             {
             //move position by velocitys
             Positions[i] += Velocitys[i] * Time.DeltaTime;
-            // draw circle graphics at positions
+            // draw circle graphics at positions(replace with image)
             Draw.FillColor = Color.Red;
             Draw.LineColor = Color.Red;
             Draw.Circle(Positions[i], BulletSize);
