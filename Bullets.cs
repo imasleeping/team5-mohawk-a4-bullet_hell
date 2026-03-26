@@ -1,6 +1,5 @@
 ﻿using MohawkGame2D;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 
@@ -9,7 +8,7 @@ public class Bullets
     public static List<Vector2> Positions = new List<Vector2>();
     public static List<Vector2> Velocitys = new List<Vector2>();
     public static List<int> BulletGroups = new List<int>();
-    public static List<int> BulletSizes = new List<int>();
+    int BulletSize = 10;
     public static void AddBullet(Vector2 position, Vector2 velocity,int bulletgroup)
     {
         //adds new bullets position and velocity to their respective lists
@@ -23,7 +22,7 @@ public class Bullets
         for (int i = 0; i < Positions.Count; i ++)
         {
             // remove if off screen
-            if (Positions[i].Y > Window.Size.Y + BulletSizes[i] || Positions[i].Y < 0 - BulletSizes[i] || Positions[i].X > Window.Size.X + BulletSizes[i] || Positions[i].X < 0 - BulletSizes[i])
+            if (Positions[i].Y > Window.Size.Y + BulletSize || Positions[i].Y < 0 - BulletSize || Positions[i].X > Window.Size.X + BulletSize || Positions[i].X < 0 - BulletSize)
             {
                 Positions.RemoveAt(i);
                 Velocitys.RemoveAt(i);
@@ -35,7 +34,7 @@ public class Bullets
             // draw circle graphics at positions(replace with image)
             Draw.FillColor = Color.Red;
             Draw.LineColor = Color.Red;
-            Draw.Circle(Positions[i], BulletSizes[i]);
+            Draw.Circle(Positions[i], BulletSize);
             }
         } 
     }
