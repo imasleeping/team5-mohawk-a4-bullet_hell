@@ -48,7 +48,7 @@ namespace MohawkGame2D
                     BulletSpawn.X = Position.X + MathF.Cos(cycle / 2) * 10;
 					//for (int i = 0; i < BulletAmount; i++)
 					//{
-                    Bullets.AddBullet(new Vector2(BulletSpawn.X, BulletSpawn.Y), (BulletSpawn - Position) * BulletSpeed);
+                    Bullets.AddBullet(new Vector2(BulletSpawn.X, BulletSpawn.Y), (BulletSpawn - Position) * BulletSpeed, 2);
 					//}
 				}
 			}
@@ -65,7 +65,7 @@ namespace MohawkGame2D
                     {
 						BulletSpawn.Y = Position.Y + MathF.Sin(MathF.Tau * i / BulletAmount) * 10;
 						BulletSpawn.X = Position.X + MathF.Cos(MathF.Tau * i / BulletAmount) * 10;
-                        Bullets.AddBullet(new Vector2(BulletSpawn.X, BulletSpawn.Y), (BulletSpawn - Position) * BulletSpeed);
+                        Bullets.AddBullet(new Vector2(BulletSpawn.X, BulletSpawn.Y), (BulletSpawn - Position) * BulletSpeed,2);
                     }
                 }
             }
@@ -91,7 +91,7 @@ namespace MohawkGame2D
                         {
                         BulletSpawn.Y = RandomPosition.Y + MathF.Sin(MathF.Tau * i / BulletAmount) * 10;
                         BulletSpawn.X = RandomPosition.X + MathF.Cos(MathF.Tau * i / BulletAmount) * 10;
-                        Bullets.AddBullet(new Vector2(BulletSpawn.X, BulletSpawn.Y), (BulletSpawn - RandomPosition) * BulletSpeed);
+                        Bullets.AddBullet(new Vector2(BulletSpawn.X, BulletSpawn.Y), (BulletSpawn - RandomPosition) * BulletSpeed,2);
                         AttackTimer3 = AttackTimerMax3;
                         }
                         RandomPosition = new Vector2(Random.Float(0, Window.Size.Y), Random.Float(0, Window.Size.X));
