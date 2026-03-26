@@ -12,10 +12,10 @@ namespace MohawkGame2D
         float AttackTimerMax2 = 0.1f;
         float AttackTimer3 = 0.1f;
         float AttackTimerMax3 = 0.1f;
-        float AttackPatternChange = 10f;
+        float AttackPatternChange = 30f;
         float TargetTimer = 0.3f;
         int LastPattern;
-        int AttackPattern = 3;
+        int AttackPattern = 2;
 		int BulletAmount = 10;
 		int BulletSpeed = 5;
         public static int Size = 20;
@@ -60,7 +60,7 @@ namespace MohawkGame2D
                     AttackTimerMax2 = 2f;
                     BulletSpeed = 7;
                     AttackTimer2 -= Time.DeltaTime;
-                    BulletAmount = 25;
+                    BulletAmount = Random.Integer(10, 20);
                     if (AttackTimer2 < 0)
                     {
                         AttackTimer2 = AttackTimerMax2;
