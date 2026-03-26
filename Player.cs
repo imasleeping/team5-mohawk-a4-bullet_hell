@@ -1,6 +1,7 @@
 ﻿// Include the namespaces (code libraries) you need below.
 using MohawkGame2D;
 using System;
+using System.Drawing;
 using System.Numerics;
 
 // The namespace your code is in.
@@ -15,6 +16,7 @@ namespace MohawkGame2D
 
         Vector2 position;
         Vector2 size;
+        Vector2 point;
 
         /// <summary>
         ///     Setup runs once before the game loop begins.
@@ -40,22 +42,12 @@ namespace MohawkGame2D
             bool isAboveWindow = playerTopEdge <= 0;             // top check
             bool isBelowWindow = playerBottomEdge >= Window.Height; // bottom check
 
-            if (isLeftOfWindow)
-            {
+            bool isWithinX = point.X > playerLeftEdge && point.X < playerRightEdge;
+            bool isWithinY = point.Y > playerTopEdge && point.Y < playerBottomEdge;
 
-            }
+            bool isWithinRectangle = isWithinX && isWithinY;
 
-            if (isRightOfWindow)
-            {
-
-            }
-
-            if (isAboveWindow)
-            {
-
-            }
-
-            if (isBelowWindow)
+            if (isWithinRectangle == true)
             {
 
             }
@@ -89,6 +81,7 @@ namespace MohawkGame2D
             {
                 input.X += 1;
             }
+
         }
     }
 
