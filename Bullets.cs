@@ -10,13 +10,14 @@ public class Bullets
     public static List<Vector2> Velocitys = new List<Vector2>();
     public static List<int> BulletGroups = new List<int>();
     public static List<int> BulletSizes = new List<int>();
-    public static void AddBullet(Vector2 position, Vector2 velocity,int bulletgroup)
+    public static void AddBullet(Vector2 position, Vector2 velocity,int bulletgroup,int bulletsize)
     {
         //adds new bullets position and velocity to their respective lists
         Positions.Add(position);
         Velocitys.Add(velocity);
         // group 1 = player group 2 = boss
         BulletGroups.Add(bulletgroup);
+        BulletSizes.Add(bulletsize);
     }
     public void Update()
     {
