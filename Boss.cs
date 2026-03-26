@@ -4,7 +4,7 @@ namespace MohawkGame2D
 {
 	public class Boss
 	{
-		int Health = 100;
+		public static int Health = 100;
 		public static Vector2 Position = Window.Size/2;
 		float AttackTimer1 = 0.1f;
 		float AttackTimerMax1 = 0.1f;
@@ -18,6 +18,7 @@ namespace MohawkGame2D
         int AttackPattern = 3;
 		int BulletAmount = 10;
 		int BulletSpeed = 5;
+        public static int Size = 20;
         Vector2 BulletSpawn = Window.Size / 2;
         Vector2 RandomPosition = new Vector2(Random.Float(0, Window.Size.Y), Random.Float(0, Window.Size.X));
         public void Update()
@@ -102,7 +103,7 @@ namespace MohawkGame2D
             // boss graphics(replace with image)
             Draw.FillColor = Color.Red;
 			Draw.LineColor = Color.Red;
-			Draw.Circle(Position, 20);
+			Draw.Circle(Position, Size);
 		}
 	}
 }
