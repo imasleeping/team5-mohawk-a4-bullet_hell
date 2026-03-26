@@ -26,15 +26,37 @@ public class Bullets
             {
                 Positions.RemoveAt(i);
                 Velocitys.RemoveAt(i);
+                BulletGroups.RemoveAt(i);
             }
             else
             {
             //move position by velocitys
             Positions[i] += Velocitys[i] * Time.DeltaTime;
             // draw circle graphics at positions(replace with image)
-            Draw.FillColor = Color.Red;
-            Draw.LineColor = Color.Red;
-            Draw.Circle(Positions[i], BulletSize);
+                if (BulletGroups[i] == 2)
+                {
+                    //boss bullet
+                Draw.FillColor = Color.Red;
+                Draw.LineColor = Color.Red;
+                BulletSize = 10;
+                Draw.Circle(Positions[i], BulletSize);
+                }
+                else
+                {
+                    //player bullet
+                Draw.FillColor = Color.Blue;
+                Draw.LineColor = Color.Blue;
+                BulletSize = 8;
+                Draw.Circle(Positions[i], BulletSize);
+                    //check if bullet hits boss
+                    if (Boss.Position.Y - Positions[i].Y < BulletSize + Boss.Size && Boss.Position.X - Positions[i].X < BulletSize + Boss.Size && Boss.Position.Y - Positions[i].Y > -BulletSize - Boss.Size && Boss.Position.X - Positions[i].X > -BulletSize - Boss.Size)
+                    {
+                        Boss.Health -= 10;
+                        Positions.RemoveAt(i);
+                        Velocitys.RemoveAt(i);
+                        BulletGroups.RemoveAt(i);
+                    }
+                }
             }
         } 
     }
