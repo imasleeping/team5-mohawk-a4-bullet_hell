@@ -51,7 +51,7 @@ public class Bullets
                     //check if bullet hits boss
                     if (Boss.Position.Y - Positions[i].Y < BulletSize + Boss.Size && Boss.Position.X - Positions[i].X < BulletSize + Boss.Size && Boss.Position.Y - Positions[i].Y > -BulletSize - Boss.Size && Boss.Position.X - Positions[i].X > -BulletSize - Boss.Size)
                     {
-                        Boss.Health -= 10;
+                        Boss.Health -= 5;
                         Positions.RemoveAt(i);
                         Velocitys.RemoveAt(i);
                         BulletGroups.RemoveAt(i);
