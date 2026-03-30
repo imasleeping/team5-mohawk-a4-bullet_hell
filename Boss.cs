@@ -106,6 +106,10 @@ namespace MohawkGame2D
                 Draw.FillColor = Color.Red;
                 Draw.LineColor = Color.Red;
                 Draw.Circle(Position, Size);
+                //healthbar. replace with image
+                Draw.FillColor = Color.Red;
+                Draw.LineColor = Color.White;
+                Draw.Rectangle(80, 25, Health * 2, 20);
             }
             else
             {
