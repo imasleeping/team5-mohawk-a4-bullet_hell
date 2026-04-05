@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Numerics;
 namespace MohawkGame2D
+
 {
 	public class Boss
 	{
-		int Health = 100;
+        Texture2D BossTexture = Graphics.LoadTexture("C:\\Users\\Harsimer\\source\\repos\\team5-mohawk-a4-bullet_hell_please_work\\Assets\\boss.png");
+       
+        int Health = 100;
 		public static Vector2 Position = Window.Size/2;
 		float AttackTimer1 = 0.1f;
 		float AttackTimerMax1 = 0.1f;
@@ -100,9 +103,10 @@ namespace MohawkGame2D
                 }
             }
             // boss graphics(replace with image)
-            Draw.FillColor = Color.Red;
-			Draw.LineColor = Color.Red;
-			Draw.Circle(Position, 20);
+            Graphics.Draw(BossTexture, Position - new Vector2(BossTexture.Width / 2f, BossTexture.Height / 2f));
+            //Draw.FillColor = Color.Red;
+			//Draw.LineColor = Color.Red;
+			//Draw.Circle(Position, 20);
 		}
 	}
 }

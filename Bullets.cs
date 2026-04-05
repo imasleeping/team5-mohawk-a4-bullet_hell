@@ -11,6 +11,7 @@ public class Bullets
     int BulletSize = 10;
     public static void AddBullet(Vector2 position, Vector2 velocity,int bulletgroup)
     {
+        
         //adds new bullets position and velocity to their respective lists
         Positions.Add(position);
         Velocitys.Add(velocity);
@@ -29,12 +30,15 @@ public class Bullets
             }
             else
             {
+
             //move position by velocitys
-            Positions[i] += Velocitys[i] * Time.DeltaTime;
-            // draw circle graphics at positions(replace with image)
-            Draw.FillColor = Color.Red;
-            Draw.LineColor = Color.Red;
-            Draw.Circle(Positions[i], BulletSize);
+                Positions[i] += Velocitys[i] * Time.DeltaTime;
+                Texture2D BossBullet = Graphics.LoadTexture("C:\\Users\\Harsimer\\source\\repos\\team5-mohawk-a4-bullet_hell_please_work\\Assets\\bossbullet.png");
+                // draw circle graphics at positions(replace with image)
+                Graphics.Draw(BossBullet, Positions[i] - new Vector2(BossBullet.Width / 2f, BossBullet.Height / 2f));
+             //Draw.FillColor = Color.Red;
+             //Draw.LineColor = Color.Red;
+             //Draw.Circle(Positions[i], BulletSize);
             }
         } 
     }
