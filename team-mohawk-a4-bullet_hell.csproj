@@ -16,9 +16,46 @@
     <NoWarn>1701;1702;CA1050;CA1069;CA1822;</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Raylib-cs" Version="7.0.1" />
+    <None Remove="Assets\boss.png" />
+    <None Remove="Assets\bossbar.png" />
+    <None Remove="Assets\bossbullet.png" />
+    <None Remove="Assets\bosshpbar.png" />
+    <None Remove="Assets\heartempty.png" />
+    <None Remove="Assets\heartfull.png" />
+    <None Remove="Assets\player.png" />
+    <None Remove="Assets\playerbullet.png" />
+    <None Remove="Assets\playerwithguns.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <Content Include="Assets\boss.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\bossbar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\bossbullet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\bosshpbar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\heartempty.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\heartfull.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\player.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\playerbullet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\playerwithguns.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Raylib-cs" Version="7.0.1" />
   </ItemGroup>
 </Project>
