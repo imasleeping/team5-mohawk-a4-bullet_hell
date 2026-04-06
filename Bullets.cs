@@ -9,6 +9,8 @@ public class Bullets
     public static List<Vector2> Velocitys = new List<Vector2>();
     public static List<int> BulletGroups = new List<int>();
     int BulletSize = 10;
+    Texture2D BossBullet = Graphics.LoadTexture("Assets/bossbullet.png");
+    Texture2D PlayerBullet = Graphics.LoadTexture("Assets/playerbullet.png");
     public static void AddBullet(Vector2 position, Vector2 velocity,int bulletgroup)
     {
         //adds new bullets position and velocity to their respective lists
@@ -36,18 +38,20 @@ public class Bullets
                 if (BulletGroups[i] == 2)
                 {
                     //boss bullet
-                Draw.FillColor = Color.Red;
-                Draw.LineColor = Color.Red;
-                BulletSize = 10;
-                Draw.Circle(Positions[i], BulletSize);
+                    //Draw.FillColor = Color.Red;
+                    //Draw.LineColor = Color.Red;
+                    //BulletSize = 10;
+                    Graphics.Draw(BossBullet, Positions[i] - new Vector2(BossBullet.Width / 2f, BossBullet.Height / 2f));
+                    //Draw.Circle(Positions[i], BulletSize);
                 }
                 else
                 {
                     //player bullet
-                Draw.FillColor = Color.Blue;
-                Draw.LineColor = Color.Blue;
-                BulletSize = 8;
-                Draw.Circle(Positions[i], BulletSize);
+                    //Draw.FillColor = Color.Blue;
+                    //Draw.LineColor = Color.Blue;
+                    //BulletSize = 8;
+                    Graphics.Draw(PlayerBullet, Positions[i] - new Vector2(PlayerBullet.Width / 2f, PlayerBullet.Height / 2f));
+                    //Draw.Circle(Positions[i], BulletSize);
                     //check if bullet hits boss
                     if (Boss.Position.Y - Positions[i].Y < BulletSize + Boss.Size && Boss.Position.X - Positions[i].X < BulletSize + Boss.Size && Boss.Position.Y - Positions[i].Y > -BulletSize - Boss.Size && Boss.Position.X - Positions[i].X > -BulletSize - Boss.Size)
                     {

@@ -19,6 +19,9 @@ namespace MohawkGame2D
 		int BulletAmount = 10;
 		int BulletSpeed = 5;
         public static int Size = 20;
+        Texture2D BossSprite = Graphics.LoadTexture("Assets/boss.png");
+        Texture2D BossHP = Graphics.LoadTexture("Assets/bossbar.png");
+        //Texture2D Timer = Graphics.LoadTexture("");
         Vector2 BulletSpawn = Window.Size / 2;
         Vector2 RandomPosition = new Vector2(Random.Float(0, Window.Size.Y), Random.Float(0, Window.Size.X));
         public void Update()
@@ -103,9 +106,11 @@ namespace MohawkGame2D
                     }
                 }
                 // boss graphics(replace with image)
-                Draw.FillColor = Color.Red;
-                Draw.LineColor = Color.Red;
-                Draw.Circle(Position, Size);
+                Graphics.Draw(BossSprite, Position - new Vector2(BossSprite.Width / 2f, BossSprite.Height / 2f));
+                //Draw.FillColor = Color.Red;
+                //Draw.LineColor = Color.Red;
+                //Draw.Circle(Position, Size);
+               
                 //healthbar. replace with image
                 Draw.FillColor = Color.Red;
                 Draw.LineColor = Color.White;
