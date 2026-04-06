@@ -13,7 +13,8 @@ namespace MohawkGame2D
         // Place your variables here:
         Boss boss = new Boss();
         Bullets bullets = new Bullets();
-
+        PlayerShooting shooting = new PlayerShooting();
+        float shootdelay = 1;
         /// <summary>
         ///     Setup runs once before the game loop begins.
         /// </summary>
@@ -30,6 +31,15 @@ namespace MohawkGame2D
             Window.ClearBackground(Color.Black);
             bullets.Update();
             boss.Update();
+            if (Input.IsMouseButtonPressed(MouseInput.Left))
+            {
+                if (shootdelay <= 0)
+                {
+                    shooting.Shoot();
+                    shootdelay = 1;
+                }
+            }
+            shootdelay -= Time.DeltaTime;
         }
     }
 
